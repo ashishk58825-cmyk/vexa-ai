@@ -14,9 +14,7 @@
       justify-content:center;
       align-items:center;
       height:100vh;
-      flex-direction:column;
     }
-
     .card{
       text-align:center;
       background:#1f2937;
@@ -25,7 +23,6 @@
       box-shadow:0 0 20px rgba(0,0,0,.4);
       width:320px;
     }
-
     .avatar{
       width:140px;
       height:140px;
@@ -38,7 +35,6 @@
       font-size:50px;
       font-weight:bold;
     }
-
     button{
       margin-top:20px;
       padding:12px 20px;
@@ -49,29 +45,27 @@
       font-size:16px;
       cursor:pointer;
     }
-
-    button:hover{
-      background:#6d28d9;
-    }
   </style>
 </head>
 <body>
+
   <div class="card">
     <div class="avatar">V</div>
     <h1>Vexa AI</h1>
     <p id="text">नमस्ते आशिष, मैं Vexa हूँ।</p>
-    <button onclick="speakNow()">Hey Vexa</button>
+    <button id="btn">Hey Vexa</button>
   </div>
 
   <script>
-    function speakNow() {
+    document.getElementById("btn").addEventListener("click", function () {
       const text = "हाँ आशिष, बताओ।";
       document.getElementById("text").innerText = text;
 
       const speech = new SpeechSynthesisUtterance(text);
       speech.lang = "hi-IN";
       window.speechSynthesis.speak(speech);
-    }
+    });
   </script>
+
 </body>
 </html>
