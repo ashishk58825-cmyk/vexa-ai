@@ -1,4 +1,5 @@
-# vexa-ai                <!DOCTYPE html>
+
+<!DOCTYPE html>
 <html lang="hi">
 <head>
   <meta charset="UTF-8">
@@ -39,10 +40,6 @@
       font-weight:bold;
     }
 
-    h1{
-      margin:10px 0;
-    }
-
     button{
       margin-top:20px;
       padding:12px 20px;
@@ -63,8 +60,19 @@
   <div class="card">
     <div class="avatar">V</div>
     <h1>Vexa AI</h1>
-    <p>नमस्ते आशिष, मैं Vexa हूँ।</p>
-    <button>Hey Vexa</button>
+    <p id="text">नमस्ते आशिष, मैं Vexa हूँ।</p>
+    <button onclick="speakNow()">Hey Vexa</button>
   </div>
+
+  <script>
+    function speakNow() {
+      const text = "हाँ आशिष, बताओ।";
+      document.getElementById("text").innerText = text;
+
+      const speech = new SpeechSynthesisUtterance(text);
+      speech.lang = "hi-IN";
+      window.speechSynthesis.speak(speech);
+    }
+  </script>
 </body>
 </html>
